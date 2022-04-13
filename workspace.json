@@ -1,7 +1,8 @@
 {
   "version": 2,
   "projects": {
-    "next-app": "apps/next-app",
-    "next-app-e2e": "apps/next-app-e2e"
+    "api": "apps/api",
+    "app-web": "apps/app-web",
+    "app-web-e2e": "apps/app-web-e2e"
   }
 }
