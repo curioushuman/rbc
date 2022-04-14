@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
-import type { Ping } from '../core/ping';
-import { PingPong } from '../core/ping';
+import type { Ping } from '../domain/ping';
+import { PingPong } from '../domain/ping';
 
 @Injectable()
 export class PingService {
