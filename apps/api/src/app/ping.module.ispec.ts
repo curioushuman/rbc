@@ -2,7 +2,7 @@ import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import * as request from 'supertest';
 
-// import { PingModule } from '@curioushuman/ping';
+import { Bootstrap } from '../bootstrap/bootstrap';
 import { AppModule } from './app.module';
 
 describe('PingModule', () => {
@@ -14,10 +14,10 @@ describe('PingModule', () => {
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
       imports: [AppModule],
-      // controllers: [],
     }).compile();
 
     app = moduleRef.createNestApplication();
+    Bootstrap.useGlobalSettings(app);
     await app.init();
     httpServer = app.getHttpServer();
   });
@@ -28,7 +28,7 @@ describe('PingModule', () => {
 
   describe('When ping is requested', () => {
     test('Then it should return a Ping', async () => {
-      const response = await request(httpServer).get('/ping');
+      const response = await request(httpServer).get('/api/ping');
 
       expect(response.status).toBe(200);
     });
