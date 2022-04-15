@@ -1,7 +1,8 @@
-import { Controller, Get, HttpCode, Post } from '@nestjs/common';
+import { Controller, HttpCode, Post } from '@nestjs/common';
+import { CommandBus } from '@nestjs/cqrs';
 
 // import { UsersQueriesService } from '../application/users-queries.service';
-// import { CreateUserService } from '../application/use-cases/create-user.service';
+import { CreateUserCommand } from '../application/commands/create-user.command';
 // import type { User } from '../domain/entities/user';
 
 /**
@@ -12,12 +13,13 @@ import { Controller, Get, HttpCode, Post } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
-  // constructor(private createUserService: CreateUserService) {}
+  constructor(private readonly commandBus: CommandBus) {}
 
   @Post()
   @HttpCode(201)
-  createUser(): Promise<void> {
-    // return this.createUserService.execute();
-    return Promise.resolve();
+  async createUser(): Promise<void> {
+    return this.commandBus.execute(
+      new CreateUserCommand('different@email.com')
+    );
   }
 }

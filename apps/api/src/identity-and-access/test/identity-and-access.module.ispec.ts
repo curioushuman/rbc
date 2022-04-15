@@ -5,7 +5,7 @@ import * as request from 'supertest';
 import { Bootstrap } from '../../bootstrap/bootstrap';
 import { AppModule } from '../../app/app.module';
 
-describe('IdentityAndAccessModule', () => {
+describe('[Integration] IdentityAndAccessModule', () => {
   let app: INestApplication;
   // disabling no-explicit-any for testing purposes
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
