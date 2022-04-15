@@ -6,6 +6,6 @@ import { PingService } from './application/ping.service';
 @Module({
   controllers: [PingController],
   providers: [PingService],
-  exports: [PingService],
+  exports: [],
 })
 export class PingModule {}
