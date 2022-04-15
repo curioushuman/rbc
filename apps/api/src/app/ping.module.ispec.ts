@@ -2,7 +2,8 @@ import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import * as request from 'supertest';
 
-import { PingModule } from '@curioushuman/ping';
+// import { PingModule } from '@curioushuman/ping';
+import { AppModule } from './app.module';
 
 describe('PingModule', () => {
   let app: INestApplication;
@@ -12,7 +13,8 @@ describe('PingModule', () => {
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
-      imports: [PingModule],
+      imports: [AppModule],
+      // controllers: [],
     }).compile();
 
     app = moduleRef.createNestApplication();
@@ -26,7 +28,7 @@ describe('PingModule', () => {
 
   describe('When ping is requested', () => {
     test('Then it should return a Ping', async () => {
-      const response = await request(httpServer).get('/api/ping');
+      const response = await request(httpServer).get('/ping');
 
       expect(response.status).toBe(200);
     });

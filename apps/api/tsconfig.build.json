@@ -1,22 +1,19 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/apps/auth",
+    "outDir": "../../dist/apps/api",
     "module": "commonjs",
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2015"
   },
   "exclude": [
-    "**/*.spec.ts",
     "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/*.ispec.ts",
     "**/__mocks__/**/*.ts",
     "**/*.mock.ts"
   ],
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["**/*.ts"]
 }

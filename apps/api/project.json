@@ -3,7 +3,7 @@
   "sourceRoot": "apps/api/src",
   "projectType": "application",
   "targets": {
-    "skaffold-dev": {
+    "docker-dev": {
       "executor": "@nrwl/workspace:run-commands",
       "outputs": [],
       "dependsOn": [
@@ -19,7 +19,7 @@
         "parallel": false
       }
     },
-    "skaffold-build": {
+    "docker-prod": {
       "executor": "@nrwl/workspace:run-commands",
       "outputs": [],
       "dependsOn": [
@@ -41,7 +41,7 @@
       "options": {
         "outputPath": "dist/apps/api",
         "main": "apps/api/src/main.ts",
-        "tsConfig": "apps/api/tsconfig.app.json",
+        "tsConfig": "apps/api/tsconfig.build.json",
         "assets": ["apps/api/src/assets"],
         "generatePackageJson": true
       },
@@ -77,6 +77,14 @@
       "outputs": ["coverage/apps/api"],
       "options": {
         "jestConfig": "apps/api/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "test-integration": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/api"],
+      "options": {
+        "jestConfig": "apps/api/jest.integration-config.js",
         "passWithNoTests": true
       }
     }
