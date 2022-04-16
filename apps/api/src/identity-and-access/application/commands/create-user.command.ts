@@ -2,7 +2,7 @@ import { CommandHandler, ICommandHandler, ICommand } from '@nestjs/cqrs';
 
 import type { User } from '../../domain/entities/user';
 import { UserRepository } from '../../adapter/ports/user.repository';
-import { executeTask } from '../../../utils/execute-task';
+import { executeTask } from '../../../support/utils/execute-task';
 
 export class CreateUserCommand implements ICommand {
   constructor(public readonly email: string) {}
