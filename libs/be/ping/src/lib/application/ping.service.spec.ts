@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { PingPong } from '../core/ping';
+import { PingPong } from '../domain/ping';
 import { PingService } from '../application/ping.service';
 jest.mock('../application/ping.service');
 
