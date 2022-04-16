@@ -9,7 +9,7 @@ deploy:
     #     [--debug]
     releases:
     - name: rbc
-      version: ~0.3.1
+      version: ~0.3.3
       # TODO create chart museum and draw from there
       chartPath: ../rbc-k8s/rbc
       namespace: rbc
@@ -17,9 +17,10 @@ deploy:
       setValues:
         tags.rbc: false
     - name: rbc-api
-      version: ~0.1.1
+      version: ~0.1.9
       chartPath: ../rbc-k8s/subcharts/rbc-api
       namespace: rbc
+      createNamespace: true
       artifactOverrides:
         image: curioushuman/rbc-api
       imageStrategy:
