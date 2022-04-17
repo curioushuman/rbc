@@ -1,11 +1,16 @@
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import * as request from 'supertest';
+import { PingModule } from '@curioushuman/ping';
 
-import { Bootstrap } from '../bootstrap/bootstrap';
-import { AppModule } from './app.module';
+import { Bootstrap } from '../../bootstrap/bootstrap';
 
-describe('[Integration] AppModule', () => {
+/**
+ * For local integration tests we just want to make sure
+ * we're returning a ping
+ */
+
+describe('[Integration] PingModule', () => {
   let app: INestApplication;
   // disabling no-explicit-any for testing purposes
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -13,7 +18,7 @@ describe('[Integration] AppModule', () => {
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [PingModule],
     }).compile();
 
     app = moduleRef.createNestApplication();
