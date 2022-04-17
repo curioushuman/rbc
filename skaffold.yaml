@@ -17,7 +17,7 @@ deploy:
       setValues:
         tags.rbc: false
     - name: rbc-api
-      version: ~0.1.9
+      version: ~0.1.10
       chartPath: ../rbc-k8s/subcharts/rbc-api
       namespace: rbc
       createNamespace: true
