@@ -7,7 +7,7 @@ import { Bootstrap } from '../../bootstrap/bootstrap';
 
 /**
  * For local integration tests we just want to make sure
- * we're returning a ping
+ * - we're returning a ping
  */
 
 describe('[Integration] PingModule', () => {
