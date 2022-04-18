@@ -8,12 +8,12 @@ import { MongoDbService } from './mongo-db.service';
   imports: [
     MongooseModule.forRootAsync({
       useFactory: () => {
-        console.log(
-          'mongo-uri',
-          'mongodb://rbc-api-mongodb.rbc.svc.cluster.local:27017/rbc-api'
-        );
+        // TODO implement using a configFactory
+        const db = process.env.RBC_MONGODB_DATABASE;
+        const u = process.env.RBC_MONGODB_USERNAME;
+        const p = process.env.RBC_MONGODB_PASSWORD;
         return {
-          uri: 'mongodb://rbc-api-mongodb.rbc.svc.cluster.local:27017/rbc-api',
+          uri: `mongodb://${u}:${p}@rbc-api-mongodb.rbc.svc.cluster.local:27017/${db}`,
         };
       },
     }),
