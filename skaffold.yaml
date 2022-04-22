@@ -9,18 +9,18 @@ deploy:
     #     [--debug]
     releases:
     - name: rbc
-      version: ~0.3.4
+      version: ~0.3.9
       # TODO create chart museum and draw from there
-      chartPath: ../rbc-k8s/rbc
-      namespace: rbc
-      createNamespace: true
+      chartPath: ../rbc-k8s/helm/rbc
       setValues:
         tags.rbc: false
     - name: rbc-api
-      version: ~0.1.12
-      chartPath: ../rbc-k8s/subcharts/rbc-api
-      namespace: rbc
-      createNamespace: true
+      version: ~0.1.15
+      chartPath: ../rbc-k8s/helm/subcharts/rbc-api
+      # this namespace is necessary
+      # as normally, this chart would be included
+      # as part of the umbrella
+      namespace: rbc-ecosystem
       artifactOverrides:
         image: curioushuman/rbc-api
       imageStrategy:
