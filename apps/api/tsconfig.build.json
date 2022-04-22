@@ -12,6 +12,7 @@
     "**/*.test.ts",
     "**/*.spec.ts",
     "**/*.ispec.ts",
+    "**/*.e2e.ts",
     "**/__mocks__/**/*.ts",
     "**/*.mock.ts"
   ],

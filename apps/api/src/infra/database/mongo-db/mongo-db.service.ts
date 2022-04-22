@@ -6,7 +6,7 @@ import { Connection } from 'mongoose';
 export class MongoDbService {
   constructor(@InjectConnection() private readonly connection: Connection) {}
 
-  getDbHandle(): Connection {
+  getConnection(): Connection {
     return this.connection;
   }
 }

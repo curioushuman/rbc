@@ -1,5 +1,6 @@
 module.exports = {
-  displayName: 'api',
+  displayName: 'api-integration',
+  collectCoverage: false,
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,6 +12,5 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/api',
   testMatch: ['**/?(*.)+(ispec).[jt]s?(x)'],
 };

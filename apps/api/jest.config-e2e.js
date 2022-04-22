@@ -1,6 +1,8 @@
 module.exports = {
-  displayName: 'api',
-  preset: '../../jest.preset.js',
+  displayName: 'api-e2e',
+  preset: './jest.preset.js',
+  collectCoverage: false,
+  rootDir: '/usr/src/app',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,9 +13,5 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/api',
-  testMatch: [
-    '**/__tests__/**/*.[jt]s?(x)',
-    '**/?(*.)+(spec|ispec|test).[jt]s?(x)',
-  ],
+  testMatch: ['**/?(*.)+(e2e).[jt]s?(x)'],
 };

@@ -35,7 +35,7 @@ build:
       context: .
       docker:
         dockerfile: apps/api/Dockerfile
-        target: development
+        target: test
       sync:
         manual:
           - src: 'apps/api/src/**/*.ts'

@@ -1,19 +1,15 @@
 #!/bin/bash
 
-# Double check Kafka
-# DISABLED 2022-03-21 until new bus installed
-# until node /usr/src/init/dist/src/index.js -c kafka
-# do
-#   echo 'Waiting for Kafka...\n'
-#   sleep 2
-# done
-
 # start node based on ENV
 if [ $NODE_ENV == "production" ]; then
   echo "Running in production..."
   node /usr/src/app/dist/api/main.js
+elif [ $NODE_ENV == "test" ]; then
+  echo "Running tests..."
+  sleep 5
+  node_modules/.bin/jest --config /usr/src/app/jest.config-e2e.js --watchAll
 else
   echo "Running in development..."
-  # nest start --watch
-  nest build --webpack --webpackPath webpack-hmr.config.js --path apps/api/tsconfig.build.json --watch
+  sleep 5
+  npx @nestjs/cli build --webpack --webpackPath webpack-hmr.config.js --path apps/api/tsconfig.build.json --watch
 fi
