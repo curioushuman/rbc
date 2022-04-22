@@ -7,8 +7,6 @@ import { Bootstrap } from '../../bootstrap/bootstrap';
 import { AppModule } from '../../app/app.module';
 import { MongoDbService } from '../../infra/database/mongo-db/mongo-db.service';
 
-// jest.setTimeout(20000);
-
 describe('[E2E] IdentityAndAccessModule', () => {
   let app: INestApplication;
   let connection: Connection;
@@ -28,8 +26,8 @@ describe('[E2E] IdentityAndAccessModule', () => {
     connection = moduleRef.get<MongoDbService>(MongoDbService).getConnection();
   });
 
-  beforeEach(async () => {
-    await connection.collection('users').deleteMany({});
+  beforeAll(async () => {
+    await connection.collection('mongodbusers').deleteMany({});
   });
 
   afterAll(async () => {
@@ -38,11 +36,20 @@ describe('[E2E] IdentityAndAccessModule', () => {
   });
 
   describe('When a user is created', () => {
-    test('Then it should return a 201 response status', async () => {
-      const response = await request(httpServer).post('/api/users');
+    let response: request.Response;
+    beforeAll(async () => {
+      response = await request(httpServer).post('/api/users');
+    });
 
+    test('Then it should return a 201 response status', async () => {
       expect(response.status).toBe(201);
-      const users = await connection.collection('users').find().toArray();
+    });
+
+    test('And a user should have been added to the database', async () => {
+      const users = await connection
+        .collection('mongodbusers')
+        .find()
+        .toArray();
       expect(users.length).toEqual(1);
     });
   });
