@@ -87,7 +87,8 @@
       "outputs": [],
       "options": {
         "commands": [
-          "cat skaffold.yaml | sed 's/target: development/target: test/' | tee skaffold.yaml"
+          "cat skaffold.yaml | sed 's/target: development/target: test/' | tee skaffold-tmp.yaml",
+          "mv skaffold-tmp.yaml skaffold.yaml"
         ],
         "parallel": false
       }
@@ -97,7 +98,8 @@
       "outputs": [],
       "options": {
         "commands": [
-          "cat skaffold.yaml | sed 's/target: test/target: development/' | tee skaffold.yaml"
+          "cat skaffold.yaml | sed 's/target: test/target: development/' | tee skaffold-tmp.yaml",
+          "mv skaffold-tmp.yaml skaffold.yaml"
         ],
         "parallel": false
       }
