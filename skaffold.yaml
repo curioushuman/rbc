@@ -8,25 +8,16 @@ deploy:
     #   install:
     #     [--debug]
     releases:
-    - name: rbc
-      version: ~0.3.9
-      # TODO create chart museum and draw from there
-      chartPath: ../rbc-k8s/helm/rbc
-      setValues:
-        tags.rbc: false
+    # TODO create chart museum and draw from there
     - name: rbc-api
-      version: ~0.1.15
-      chartPath: ../rbc-k8s/helm/subcharts/rbc-api
-      # this namespace is necessary
-      # as normally, this chart would be included
-      # as part of the umbrella
+      version: ~1.0.0
+      chartPath: ../rbc-k8s/core/rbc-api
       namespace: rbc-ecosystem
+      createNamespace: true
       artifactOverrides:
         image: curioushuman/rbc-api
       imageStrategy:
         helm: {}
-      setValues:
-        global.umbrellaRelease: "rbc"
 build:
   local:
     push: false
@@ -35,7 +26,7 @@ build:
       context: .
       docker:
         dockerfile: apps/api/Dockerfile
-        target: test
+        target: development
       sync:
         manual:
           - src: 'apps/api/src/**/*.ts'

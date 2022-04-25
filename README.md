@@ -4,6 +4,14 @@ This is a work in progress. Going back to basics to build out my own version of 
 
 # Setup
 
+## K8s
+
+Need the rbc-k8s repo to be cloned and in the same directory as this one. Just as we work on them together, it is quicker to draw from local files rather than a chart museum.
+
+**TODO**
+
+- Draw the k8s setup from repo museum
+
 # Testing
 
 ## Locally
