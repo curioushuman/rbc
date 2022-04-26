@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@curioushuman/ping": ["libs/be/ping/src/index.ts"]
+      "@curioushuman/ping": ["libs/be/ping/src/index.ts"],
+      "@curioushuman/loggable": ["libs/be/loggable/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

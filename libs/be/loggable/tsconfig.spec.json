@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/libs/be/ping",
+    "outDir": "../../dist/libs/be/loggable",
     "module": "commonjs",
     "types": ["jest", "node"]
   },

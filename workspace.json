@@ -4,6 +4,7 @@
     "api": "apps/api",
     "app-web": "apps/app-web",
     "app-web-e2e": "apps/app-web-e2e",
-    "ping": "libs/be/ping"
+    "ping": "libs/be/ping",
+    "loggable": "libs/be/loggable"
   }
 }
