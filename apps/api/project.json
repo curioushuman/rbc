@@ -46,7 +46,7 @@
       ],
       "options": {
         "commands": [
-          "docker build -f ./apps/api/Dockerfile . --target production -t curioushuman/rbc-api:{args.tag}"
+          "docker build --platform=linux/amd64 -f ./apps/api/Dockerfile . --target production -t curioushuman/rbc-api:{args.tag}"
         ],
         "parallel": false
       }
